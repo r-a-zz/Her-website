@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <script
+      src="https://kit.fontawesome.com/a14ae32021.js"
+      crossorigin="anonymous"
+    ></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>This one is for my Moh Januuu!!</title>
+
+    <style type="text/css">
+      @font-face {
+        font-family: digit;
+        src: url("digital-7_mono.ttf") format("truetype");
+      }
+    </style>
+    <link href="css/default.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/garden.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+  </head>
+
+  <body>
+    <div id="mainDiv">
+      <nav class="sidebar">
+        <ul>
+          <li>
+            <section class="astro-section">
+              <label for="zodiacSign" style="font-size: 15px;"><B>Have a look on ur Horroscope Jaanu :</B></label>
+
+              <select style="text-align: center;;" id="zodiacSign">
+                <option value="aries">Aries</option>
+                <option value="taurus">Taurus</option>
+                <option value="gemini">Gemini</option>
+                <option value="cancer">Cancer</option>
+                <option value="leo">Leo</option>
+                <option value="virgo">Virgo</option>
+                <option value="libra">Libra</option>
+                <option value="scorpio">Scorpio</option>
+                <option value="sagittarius">Sagittarius</option>
+                <option value="capricorn">Capricorn</option>
+                <option value="aquarius">Aquarius</option>
+                <option value="pisces">Pisces</option>
+              </select>
+
+              <button
+                onclick="fetchHoroscope(document.getElementById('zodiacSign').value)"
+              >
+                Get Horoscope
+              </button>
+
+              <div id="horoscopeResult" class="result-box">
+                Your horoscope will appear here...
+              </div>
+            </section>
+          </li>
+
+		  <br>
+
+          <li style="margin-top: 10px;">
+			Wanna hear Music ?? hihihi,,... You have an option here too !!
+			<br>
+				<label for="musicSearch" style="font-size: 15px;"><b>Search for a song:</b></label><br>
+				<input type="text" id="musicSearch" placeholder="e.g. Tum Hi Ho" style="width: 100%; padding: 8px; border-radius: 6px; margin-top: 5px;">
+			  
+				<button onclick="searchMusic()" style="margin-top: 5px; width: 100%; padding: 8px;">Play</button>
+			  
+				<div id="musicPlayer" style="margin-top: 10px; border-radius: 8px; overflow: hidden;">
+				  <!-- YouTube video will appear here -->
+				</div> 
+		  </li>
+		  
+        </ul>
+      </nav>
+
+      <img id="background" />
+      <div class="navigation"></div>
+      <div id="content">
+        <div id="code">
+          <span class="comments">/**</span><br />
+          <span class="space" /><span class="comments">*THE CODE OF LOVE</span
+          ><br />
+          <span class="space" /><span class="comments">*/</span><br />
+          Hey Girl !<br />
+          Do you remember the day we first Met...<br />
+          <span class="comments"
+            >// At a Telegram group "Song Group" hihihi...
+            <p>&#129323;</p>
+            (Gareebon ka Tinder hahahaha...). </span
+          ><br />
+          Since that day a spark begun;<br />
+          <span class="comments"
+            >// Your Elegant Words, Your Voice Your Smiley happy Nature .</span
+          ><br />
+          Your everything got imprinted in my heart;<br />
+          As the time went on;<br />
+          The Bond grew stronger and stronger;<br />
+          Journey from Infatuation to Love;<br />
+          We have traveled a long way together;<br />
+          There have been fights ;<br />
+          <span class="comments">// And I'm sure there will be more.</span
+          ><br />
+          But our Bond will always grow back Stronger;<br />
+          <br />
+          <br />
+          All I want to say is:<br />
+          Bubuuuu shonuuuuu monuuuuuuu betuuuuuuuuuuuuu, I willlllll
+          looooovvvvvvvvveeeeeeeeeee yoooooooooouuuuuuuuuuuuuuuuu
+          foreverrrrrrrrrrrrrrrrrrrrrrrrrrrr
+          <p>
+            &#128536;&#128536;&#128536;&#128536; &#128536;&#129392;&#129392;
+          </p>
+          ;<br />
+          <br />
+          <br />
+          Now If you want to see us, you can touch the heart below<br />
+          <br />
+          <span id="heartspan">
+            <a href="meNyou.jpeg"><i class="fas fa-heart" id="icon"></i></a>
+          </span>
+        </div>
+        <div id="loveHeart">
+          <canvas id="garden"></canvas>
+          <div id="words">
+            <div id="messages">
+              मोहिनी अवतार FOREVER
+              <div id="elapseClock"></div>
+            </div>
+            <div id="loveu">
+              I LOVE YOU SO MUCH<br />
+              <div class="signature">- RAJ(Duffer)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var offsetX = $("#loveHeart").width() / 2;
+      var offsetY = $("#loveHeart").height() / 2 - 55;
+      var together = new Date();
+      together.setFullYear(2022, 5, 9);
+      together.setHours(18);
+      together.setMinutes(56);
+      together.setSeconds(0);
+      together.setMilliseconds(0);
+
+      if (!document.createElement("canvas").getContext) {
+        var msg = document.createElement("div");
+        msg.id = "errorMsg";
+        msg.innerHTML =
+          "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+        document.body.appendChild(msg);
+        $("#code").css("display", "none");
+        $("#copyright").css("position", "absolute");
+        $("#copyright").css("bottom", "10px");
+        document.execCommand("stop");
+      } else {
+        setTimeout(function () {
+          startHeartAnimation();
+        }, 5000);
+
+        timeElapse(together);
+        setInterval(function () {
+          timeElapse(together);
+        }, 500);
+
+        adjustCodePosition();
+        $("#code").typewriter();
+
+        const bg = document.getElementById("background");
+
+        const images = [
+          "Mohini-2.jpeg",
+          "Mohini-4.jpeg",
+          "Mohini-3.jpeg",
+          "Mohini-5.jpeg",
+          "Mohini-6.jpeg",
+          "Mohini-7.jpeg",
+          "Mohini-8.jpeg",
+          "Mohini-9.jpeg",
+          "Mohini-10.jpeg",
+        ];
+        let current = 0;
+        bg.style.backgroundImage = `url(${images[current]})`;
+
+        function changebackground() {
+          current = (current + 1) % images.length;
+          bg.style.backgroundImage = `url(${images[current]})`;
+        }
+        changebackground();
+        setInterval(changebackground, 6000);
+      }
+    </script>
+  </body>
+</html>
