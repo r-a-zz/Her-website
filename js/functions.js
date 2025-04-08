@@ -153,23 +153,36 @@ async function fetchHoroscope(sign) {
 	  resultBox.innerHTML = `Error fetching horoscope: ${error.message}`;
 	}
   }
+ //Music Search & Play Functionality.
   async function searchMusic() {
 	const query = document.getElementById('musicSearch').value;
-	if (!query) return;
-  
-	try {
-	  const response = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query)}&key=AIzaSyCRcHBpE-l-s9pMstNwFQ0PIrNNX8IOfr0&type=video&maxResults=1`);
-	  const data = await response.json();
-  
-	  const videoId = data.items[0].id.videoId;
-  
-	  document.getElementById('musicPlayer').innerHTML = `
-		<iframe width="100%" height="180" src="https://www.youtube.com/embed/${videoId}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-	  `;
-	} catch (err) {
-	  document.getElementById('musicPlayer').innerHTML = 'Music not found 😢';
-	  console.error(err);
+	const apiKey = "AIzaSyCRcHBpE-l-s9pMstNwFQ0PIrNNX8IOfr0"; // <--- replace with your actual API Key
+
+	if (!query) {
+		alert("Please enter a song!");
+		return;
 	}
-  }
+
+	try {
+		const response = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query)}&type=video&maxResults=1&key=${apiKey}`);
+		const data = await response.json();
+
+		if (data.items && data.items.length > 0) {
+			const videoId = data.items[0].id.videoId;
+			const videoTitle = data.items[0].snippet.title;
+
+			document.getElementById('musicPlayer').innerHTML = `
+				<p><strong>${videoTitle}</strong></p>
+				<iframe width="100%" height="180" src="https://www.youtube.com/embed/${videoId}?autoplay=1" 
+					frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			`;
+		} else {
+			document.getElementById('musicPlayer').innerHTML = 'No results found!';
+		}
+	} catch (err) {
+		document.getElementById('musicPlayer').innerHTML = 'Music not found 😢';
+		console.error(err);
+	}
+}
 	
   
