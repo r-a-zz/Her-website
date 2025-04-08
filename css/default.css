@@ -170,3 +170,49 @@ nav.sidebar {
   text-align: center;
   margin: 20px;
 }
+@media (max-width: 768px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    box-shadow: none;
+  }
+
+  #mainDiv {
+    margin-left: 0;
+  }
+
+  #background {
+    left: 0;
+    width: 100%;
+  }
+
+  #content,
+  #loveHeart {
+    margin-left: 0;
+    padding: 10px;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+  }
+
+  .astro-section select,
+  .astro-section button {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .astro-section .result-box {
+    height: auto;
+    max-height: 200px;
+  }
+
+  #elapseClock,
+  #messages,
+  #loveu {
+    font-size: 16px;
+    padding: 10px;
+  }
+}
